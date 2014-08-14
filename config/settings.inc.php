@@ -1,9 +1,9 @@
 <?php
-if ($_SERVER["HTTP_HOST"] === 'localhost'){
+if (($_SERVER["HTTP_HOST"] === 'localhost') {
   $db_name = 'tieucanh';
   $db_user = 'root';
   $password = '';
-} elseif ($_SERVER["HTTP_HOST"] === 'tieucanhthuytinh.com'){
+} elseif (($_SERVER["HTTP_HOST"] === 'tieucanhthuytinh.com') || ($_SERVER["HTTP_HOST"] === 'www.tieucanhthuytinh.com')) {
   $db_name = 'tieucanh';
   $db_user = 'tieucanh';
   $password = 'tieucanhvnaka';
