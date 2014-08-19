@@ -1,5 +1,5 @@
 <?php
-if (($_SERVER["HTTP_HOST"] === 'localhost') {
+if (($_SERVER["HTTP_HOST"] === 'localhost')) {
   $db_name = 'tieucanh';
   $db_user = 'root';
   $password = '';
