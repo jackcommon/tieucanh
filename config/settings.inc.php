@@ -5,7 +5,7 @@ if (($_SERVER["HTTP_HOST"] === 'localhost')) {
   $password = '';
 } elseif (($_SERVER["HTTP_HOST"] === 'tieucanhthuytinh.com') || ($_SERVER["HTTP_HOST"] === 'www.tieucanhthuytinh.com')) {
   $db_name = 'tieucanh_ps';
-  $db_user = 'tieucanh';
+  $db_user = 'tieucanh_ps';
   $password = 'tieucanhvnaka';
 }
 define('_DB_SERVER_', 'localhost');
