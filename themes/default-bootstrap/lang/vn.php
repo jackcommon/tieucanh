@@ -589,6 +589,7 @@ $_LANG['product_98edb85b00d9527ad5acebe451b3fae6'] = 'Phụ kiện';
 $_LANG['product_9981d2af851e4b4a4ea612d59f08ab9c'] = 'Kiểu xem khác';
 $_LANG['product_9a9a97ca85af73f90515e72745f730f0'] = 'thay thế cho';
 $_LANG['product_9dffbf69ffba8bc38bc4e01abf4b1675'] = 'Đoạn văn bản';
+$_LANG['product_9e2941b3c81256fac10392aaca4ccfde'] = 'Tình trạng';
 $_LANG['product_a134618182b99ff9151d7e0b6b92410a'] = '( Không thêm giảm giá)';
 $_LANG['product_b11ddc7e1671c0bd22dc89dd757508d4'] = 'Hình ảnh';
 $_LANG['product_bc0f7082192ef02e934a036cf4991789'] = 'Sản phẩm này không còn trong kho';
