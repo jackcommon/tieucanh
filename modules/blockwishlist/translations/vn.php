@@ -36,6 +36,7 @@ $_MODULE['<{blockwishlist}prestashop>view_694e8d1f2ee056f98ee488bdc4982d73'] = '
 $_MODULE['<{blockwishlist}prestashop>view_4351cfebe4b61d8aa5efa1d020710005'] = 'Xem';
 $_MODULE['<{blockwishlist}prestashop>view_2d0f6b8300be19cf35e89e66f0677f95'] = 'Add to Cart';
 $_MODULE['<{blockwishlist}prestashop>view_d95cf4ab2cbf1dfb63f066b50558b07d'] = 'My Account';
-
+$_MODULE['<{blockwishlist}prestashop>blockwishlist_button_6a5373df703ab2827a4ba7facdfcf779'] = 'Thêm ưa thích'; //!!@!!translate_141105 insert
+$_MODULE['<{blockwishlist}prestashop>my-account_7ec9cceb94985909c6994e95c31c1aa8'] = 'Ưa thích của tôi'; //!!@!!translate_141105 insert
 
 return $_MODULE;

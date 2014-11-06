@@ -15,6 +15,7 @@ $_MODULE['<{blockuserinfo}prestashop>blockuserinfo_4b877ba8588b19f1b278510bf2b57
 $_MODULE['<{blockuserinfo}prestashop>blockuserinfo_c87aacf5673fada1108c9f809d354311'] = 'Đăng xuất';
 $_MODULE['<{blockuserinfo}prestashop>nav_4b877ba8588b19f1b278510bf2b57ebb'] = 'Đăng xuất';
 $_MODULE['<{blockuserinfo}prestashop>nav_c87aacf5673fada1108c9f809d354311'] = 'Đăng xuất';
+$_MODULE['<{blockuserinfo}prestashop>nav_b6d4223e60986fa4c9af77ee5f7149c5'] = 'Đăng nhập'; //!!@!!translate_141105 insert
 
 
 return $_MODULE;

@@ -13,6 +13,7 @@ $_MODULE['<{homefeatured}prestashop>homefeatured_d3da97e2d9aee5c8fbe03156ad051c9
 $_MODULE['<{homefeatured}prestashop>homefeatured_4351cfebe4b61d8aa5efa1d020710005'] = 'Xem';
 $_MODULE['<{homefeatured}prestashop>homefeatured_2d0f6b8300be19cf35e89e66f0677f95'] = 'Add to Cart';
 $_MODULE['<{homefeatured}prestashop>homefeatured_e0e572ae0d8489f8bf969e93d469e89c'] = 'Không có sản phẩm đặc biệt';
+$_MODULE['<{homefeatured}prestashop>tab_2cc1943d4c0b46bfcf503a75c44f988b'] = 'Ưa chuộng'; //!!@!!translate_141105 insert
 
 
 return $_MODULE;
