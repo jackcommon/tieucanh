@@ -38,5 +38,7 @@ $_MODULE['<{blockwishlist}prestashop>view_2d0f6b8300be19cf35e89e66f0677f95'] = '
 $_MODULE['<{blockwishlist}prestashop>view_d95cf4ab2cbf1dfb63f066b50558b07d'] = 'My Account';
 $_MODULE['<{blockwishlist}prestashop>blockwishlist_button_6a5373df703ab2827a4ba7facdfcf779'] = 'Thêm ưa thích'; //!!@!!translate_141105 insert
 $_MODULE['<{blockwishlist}prestashop>my-account_7ec9cceb94985909c6994e95c31c1aa8'] = 'Ưa thích của tôi'; //!!@!!translate_141105 insert
+$_MODULE['<{blockwishlist}prestashop>blockwishlist-extra_2d96bb66d8541a89620d3c158ceef42b'] = 'Thêm vào ưa thích'; //!!@!!translate_141105 insert
+$_MODULE['<{blockwishlist}prestashop>blockwishlist_top_16a23698e7cf5188ce1c07df74298076'] = 'Bạn phải đăng nhập để có thể quản lý danh sách ưa thích.'; //!!@!!translate_141105 insert
 
 return $_MODULE;

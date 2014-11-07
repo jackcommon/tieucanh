@@ -102,6 +102,7 @@ $_MODULE['<{blockwishlist}prestashop>blockwishlist_top_16a23698e7cf5188ce1c07df7
 $_MODULE['<{blockwishlist}prestashop>blockwishlist_top_ab086554d10bb35f820e7a704105abbf'] = 'Added to your wishlist.';
 $_MODULE['<{blockwishlist}prestashop>view_d95cf4ab2cbf1dfb63f066b50558b07d'] = 'My account';
 $_MODULE['<{blockwishlist}prestashop>view_7ec9cceb94985909c6994e95c31c1aa8'] = 'My wishlists';
+$_MODULE['<{blockwishlist}prestashop>blockwishlist-extra_2d96bb66d8541a89620d3c158ceef42b'] = 'Add to wishlist'; //!!@!!translate_141105 insert
 
 
 return $_MODULE;
