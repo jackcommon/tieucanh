@@ -12,8 +12,8 @@ function tinySetup(config)
 //    safari,pagebreak,style,table,advimage,advlink,inlinepopups,media,contextmenu,paste,fullscreen,xhtmlxtras,preview
 	default_config = {
 		selector: ".rte" ,
-		plugins : "colorpicker link image paste pagebreak table contextmenu filemanager table code media autoresize textcolor",
-		toolbar1 : "code,|,bold,italic,underline,strikethrough,|,alignleft,aligncenter,alignright,alignfull,formatselect,|,blockquote,colorpicker,pasteword,|,bullist,numlist,|,outdent,indent,|,link,unlink,|,cleanup,|,media,image",
+		plugins : "colorpicker link image paste pagebreak table contextmenu filemanager table code media autoresize textcolor fontawesome",
+		toolbar1 : "code,|,bold,italic,underline,strikethrough,|,alignleft,aligncenter,alignright,alignfull,formatselect,|,blockquote,colorpicker,pasteword,|,bullist,numlist,|,outdent,indent,|,link,unlink,|,cleanup,|,media,image,|,fontawesome",
 		toolbar2: "",
 		external_filemanager_path: ad+"/filemanager/",
 		filemanager_title: "File manager" ,
@@ -23,7 +23,8 @@ function tinySetup(config)
 		statusbar: false,
 		relative_urls : false,
 		convert_urls: false,
-		extended_valid_elements : "em[class|name|id]",
+		extended_valid_elements : "em[class|name|id] span[class]",
+    content_css: '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css',
 		menu: {
 			edit: {title: 'Edit', items: 'undo redo | cut copy paste | selectall'},
 			insert: {title: 'Insert', items: 'media image link | pagebreak'},

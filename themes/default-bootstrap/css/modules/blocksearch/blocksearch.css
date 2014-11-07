@@ -26,6 +26,7 @@
     #search_block_top .btn.button-search:hover {
       color: #6f6f6f; }
   #search_block_top #search_query_top {
+    border-radius: 7px; /*!!@!!css 141107 insert*/
     display: inline;
     padding: 0 13px;
     height: 45px;

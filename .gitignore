@@ -29,7 +29,7 @@ robots.txt
 sitemap.xml
 
 !!@!!jacky start from here
-.DS_Store
 !img/*
 img/tmp/*
 !config/settings.inc.php
+.DS_Store

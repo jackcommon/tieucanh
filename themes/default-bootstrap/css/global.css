@@ -5255,8 +5255,8 @@ textarea {
   z-index: 5003; }
 
 .columns-container {
-  background: white; }
-
+  /* background: white;  */ /*!!@!!css 141107 remove*/
+  } 
 #columns {
   position: relative;
   padding-bottom: 50px;
@@ -5269,7 +5269,7 @@ textarea {
 header {
   z-index: 1;
   position: relative;
-  background: white;
+  /* background: white;  */ /*!!@!!css 141107 remove*/
   padding-bottom: 15px; }
   header .banner {
     background: black;
@@ -6657,6 +6657,10 @@ div.star a:hover {
   font-size: 13px;
   background: none repeat scroll 0 0 lightyellow; }
 
+div#page { /*!!@!!css 141107 insert*/
+    background: url("../img/body_bg.jpg") no-repeat scroll center top #F9FBEA;
+}
+
 #page .rte {
   background: transparent none repeat scroll 0 0; }
 
@@ -6681,7 +6685,8 @@ div.star a:hover {
   color: #333333; }
 
 .header-container {
-  background: white; }
+  /* background: white;  */ /*!!@!!css 141107 remove*/
+  }
 
 .breadcrumb {
   display: inline-block;

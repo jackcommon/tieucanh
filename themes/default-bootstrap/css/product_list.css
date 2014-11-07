@@ -169,11 +169,11 @@ ul.product_list.grid > li {
       width: 50%;
       float: left; } }
   ul.product_list.grid > li .product-container {
-    background: white;
+    background: rgba(249, 213, 222, 0.6); /*!!@!!css 141107 update*/
     padding: 0;
     position: relative; }
     ul.product_list.grid > li .product-container .product-image-container {
-      border: 1px solid #d6d4d4;
+      /* border: 1px solid #d6d4d4; */ /*!!@!!css 141107 delete*/
       padding: 9px;
       margin-bottom: 13px;
       position: relative; }
