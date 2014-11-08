@@ -171,7 +171,7 @@ CREATE TABLE `ps_advice` (
 
 LOCK TABLES `ps_advice` WRITE;
 /*!40000 ALTER TABLE `ps_advice` DISABLE KEYS */;
-INSERT INTO `ps_advice` VALUES (49,24,1,NULL,1,0,'after','#dashtrends',0,0,1),(50,324,31,NULL,1,0,'before','.toolbar-placeholder:eq(0), form#invoice_date_form, form#product,  form#form-product, form#store,  form#form-store, form#category,  form#form-category',0,0,1),(51,353,59,NULL,1,0,'before','#typeTranslationForm',0,0,1),(52,354,1,NULL,1,0,'before','addons',0,0,1),(53,356,1,NULL,1,0,'before','#dashtrends',0,0,1),(54,389,0,NULL,1,0,'before','#upgradeButtonBlock',0,0,1);
+INSERT INTO `ps_advice` VALUES (49,24,1,NULL,1,0,'after','#dashtrends',0,0,1),(50,324,31,NULL,0,0,'before','.toolbar-placeholder:eq(0), form#invoice_date_form, form#product,  form#form-product, form#store,  form#form-store, form#category,  form#form-category',0,0,1),(51,353,59,NULL,1,0,'before','#typeTranslationForm',0,0,1),(52,354,1,NULL,1,0,'before','addons',0,0,1),(53,356,1,NULL,1,0,'before','#dashtrends',0,0,1),(54,389,0,NULL,1,0,'before','#upgradeButtonBlock',0,0,1);
 /*!40000 ALTER TABLE `ps_advice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -7728,4 +7728,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-11-08 12:31:51
+-- Dump completed on 2014-11-08 12:46:45
