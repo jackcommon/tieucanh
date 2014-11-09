@@ -7952,7 +7952,7 @@ div.star.star_hover:after {
     color: white;
     line-height: 60px;
     text-align: center;
-    background: #6f6d6d;
+    background: #f45454; /*!!@!!css 141107 update*/
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px; }
@@ -7967,6 +7967,7 @@ div.star.star_hover:after {
   #cmsinfo_block h3 {
     margin: 0 0 5px 0;
     font: 300 21px/25px "Open Sans", sans-serif;
+    font-family: Georgia,"Times New Roman",Times,serif; /*!!@!!css 141107 insert*/
     color: #6f6d6d; }
     @media (max-width: 1199px) {
       #cmsinfo_block h3 {
