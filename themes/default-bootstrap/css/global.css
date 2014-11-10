@@ -6659,7 +6659,8 @@ div.star a:hover {
   background: none repeat scroll 0 0 lightyellow; }
 
 div#page { /*!!@!!css 141107 insert*/
-    background: url("../img/body_bg.jpg") no-repeat scroll center top #F9FBEA;
+    /* background: url("../img/body_bg.jpg") no-repeat scroll center top #F9FBEA; */
+    background: white;
 }
 
 #page .rte {
