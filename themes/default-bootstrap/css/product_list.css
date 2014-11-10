@@ -169,8 +169,9 @@ ul.product_list.grid > li {
       width: 50%;
       float: left; } }
   ul.product_list.grid > li .product-container {
-    /* background: rgba(249, 213, 222, 0.6); /*!!@!!css 141107 update*/ */
+    /* background: rgba(249, 213, 222, 0.6);*/ /*!!@!!css 141107 update*/
     background: rgba(24, 161, 39, 0.83); /*!!@!!css 141107 update*/
+    /* background: white; */
     padding: 0;
     position: relative; }
     ul.product_list.grid > li .product-container .product-image-container {
