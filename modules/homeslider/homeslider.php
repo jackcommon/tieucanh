@@ -42,7 +42,7 @@ class HomeSlider extends Module
 	{
 		$this->name = 'homeslider';
 		$this->tab = 'front_office_features';
-		$this->version = '1.3.9';
+		$this->version = '1.4.2';
 		$this->author = 'PrestaShop';
 		$this->need_instance = 0;
 		$this->secure_key = Tools::encrypt($this->name);
@@ -106,7 +106,9 @@ class HomeSlider extends Module
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p>
 				<p><button class="btn btn-default" type="button">Shop now !</button></p>';
 				$slide->legend[$language['id_lang']] = 'sample-'.$i;
-				$slide->url[$language['id_lang']] = 'http://www.prestashop.com/?utm_source=v16_homeslider';
+				$slide->url[$language['id_lang']] = 'http://www.prestashop.com/?utm_source=back-office&utm_medium=v16_homeslider'
+					.'&utm_campaign=back-office-'.Tools::strtoupper($this->context->language->iso_code)
+					.'&utm_content='.(defined('_PS_HOST_MODE_') ? 'ondemand' : 'download');
 				$slide->image[$language['id_lang']] = 'sample-'.$i.'.jpg';
 			}
 			$slide->add();
@@ -258,7 +260,7 @@ class HomeSlider extends Module
 
 				//d(var_dump(Tools::getValue('id_slide')));
 				if (!Validate::isInt(Tools::getValue('id_slide')) && !$this->slideExists(Tools::getValue('id_slide')))
-					$errors[] = $this->l('Invalid id_slide');
+					$errors[] = $this->l('Invalid slide ID');
 			}
 			/* Checks title/url/legend/description/image */
 			$languages = Language::getLanguages(false);
@@ -294,7 +296,7 @@ class HomeSlider extends Module
 				$errors[] = $this->l('The image is not set.');
 		} /* Validation for deletion */
 		elseif (Tools::isSubmit('delete_id_slide') && (!Validate::isInt(Tools::getValue('delete_id_slide')) || !$this->slideExists((int)Tools::getValue('delete_id_slide'))))
-			$errors[] = $this->l('Invalid id_slide');
+			$errors[] = $this->l('Invalid slide ID');
 
 		/* Display errors if needed */
 		if (count($errors))
@@ -346,7 +348,7 @@ class HomeSlider extends Module
 				$slide = new HomeSlide((int)Tools::getValue('id_slide'));
 				if (!Validate::isLoadedObject($slide))
 				{
-					$this->_html .= $this->displayError($this->l('Invalid id_slide'));
+					$this->_html .= $this->displayError($this->l('Invalid slide ID'));
 
 					return false;
 				}
@@ -645,7 +647,7 @@ class HomeSlider extends Module
 		$fields_form = array(
 			'form' => array(
 				'legend' => array(
-					'title' => $this->l('Slide informations'),
+					'title' => $this->l('Slide information'),
 					'icon' => 'icon-cogs'
 				),
 				'input' => array(
@@ -654,17 +656,17 @@ class HomeSlider extends Module
 						'label' => $this->l('Select a file'),
 						'name' => 'image',
 						'lang' => true,
-						'desc' => $this->l(sprintf('Max image size %s', ini_get('upload_max_filesize')))
+						'desc' => $this->l(sprintf('Maximum image size: %s.', ini_get('upload_max_filesize')))
 					),
 					array(
 						'type' => 'text',
-						'label' => $this->l('Title'),
+						'label' => $this->l('Slide title'),
 						'name' => 'title',
 						'lang' => true,
 					),
 					array(
 						'type' => 'text',
-						'label' => $this->l('URL'),
+						'label' => $this->l('Target URL'),
 						'name' => 'url',
 						'lang' => true,
 					),
@@ -683,7 +685,7 @@ class HomeSlider extends Module
 					),
 					array(
 						'type' => 'switch',
-						'label' => $this->l('Active'),
+						'label' => $this->l('Enabled'),
 						'name' => 'active_slide',
 						'is_bool' => true,
 						'values' => array(
@@ -763,21 +765,23 @@ class HomeSlider extends Module
 				'input' => array(
 					array(
 						'type' => 'text',
-						'label' => $this->l('Max width'),
+						'label' => $this->l('Maximum image width'),
 						'name' => 'HOMESLIDER_WIDTH',
-						'suffix' => 'px'
+						'suffix' => 'pixels'
 					),
 					array(
 						'type' => 'text',
 						'label' => $this->l('Speed'),
 						'name' => 'HOMESLIDER_SPEED',
-						'suffix' => 'ms'
+						'suffix' => 'milliseconds',
+						'desc' => $this->l('The duration of the transition between two slides.')
 					),
 					array(
 						'type' => 'text',
 						'label' => $this->l('Pause'),
 						'name' => 'HOMESLIDER_PAUSE',
-						'suffix' => 'ms'
+						'suffix' => 'milliseconds',
+						'desc' => $this->l('The delay between two slides.')
 					),
 					array(
 						'type' => 'switch',
