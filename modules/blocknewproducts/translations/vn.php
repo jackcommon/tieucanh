@@ -16,7 +16,7 @@ $_MODULE['<{blocknewproducts}prestashop>blocknewproducts_c9cc8cce247e49bae79f151
 $_MODULE['<{blocknewproducts}prestashop>blocknewproducts_9ff0635f5737513b1a6f559ac2bff745'] = 'Sản phẩm mới'; //!!@!!translate_141105 update
 $_MODULE['<{blocknewproducts}prestashop>blocknewproducts_60efcc704ef1456678f77eb9ee20847b'] = 'Tất cả';
 $_MODULE['<{blocknewproducts}prestashop>blocknewproducts_18cc24fb12f89c839ab890f8188febe8'] = 'Không có sản phẩm mới ở thời điểm này';
-$_MODULE['<{blocknewproducts}prestashop>tab_a0d0ebc37673b9ea77dd7c1a02160e2d'] = 'Mẫu mới'; //!!@!!translate_141105 insert
+$_MODULE['<{blocknewproducts}prestashop>tab_a0d0ebc37673b9ea77dd7c1a02160e2d'] = 'Hàng mới'; //!!@!!translate_141105 insert
 
 
 return $_MODULE;
