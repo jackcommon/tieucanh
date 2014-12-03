@@ -37,7 +37,7 @@ class ThemeConfigurator extends Module
 	{
 		$this->name = 'themeconfigurator';
 		$this->tab = 'front_office_features';
-		$this->version = '1.1.6';
+		$this->version = '1.1.7';
 		$this->bootstrap = true;
 		$this->secure_key = Tools::encrypt($this->name);
 		$this->default_language = Language::getLanguage(Configuration::get('PS_LANG_DEFAULT'));
@@ -445,7 +445,7 @@ class ThemeConfigurator extends Module
 					image_w = '.(int)$image_w.',
 					image_h = '.(int)$image_h.',
 					active = '.(int)Tools::getValue('item_active').',
-					html = \''.pSQL($content, true).'\'
+					html = \''.pSQL(Tools::purifyHTML($content), true).'\'
 			WHERE id_item = '.(int)Tools::getValue('item_id')
 		))
 		{
@@ -584,7 +584,7 @@ class ThemeConfigurator extends Module
 					\''.pSQL($image).'\',
 					\''.pSQL($image_w).'\',
 					\''.pSQL($image_h).'\',
-					\''.pSQL($content, true).'\',
+					\''.pSQL(Tools::purifyHTML($content), true).'\',
 					1)'
 		))
 		{
@@ -732,14 +732,13 @@ class ThemeConfigurator extends Module
 		// Construct the description for the 'Enable Live Configurator' switch
 		if ($this->context->shop->getBaseURL())
 		{
-			$url = $this->context->shop->getBaseURL()
-				.((Configuration::get('PS_REWRITING_SETTINGS') && count(Language::getLanguages(true)) > 1) ? Language::getIsoById($this->context->employee->id_lang).'/' : '')
-				.(Configuration::get('PS_REWRITING_SETTINGS') ? '' : 'index.php')
-				.'?live_configurator_token='.$this->getLiveConfiguratorToken()
-				.'&id_employee='.(int)$this->context->employee->id
-				.'&id_shop='.(int)$this->context->shop->id
-				.(Configuration::get('PS_TC_THEME') != '' ? '&theme='.Configuration::get('PS_TC_THEME') : '')
-				.(Configuration::get('PS_TC_FONT') != '' ? '&theme_font='.Configuration::get('PS_TC_FONT') : '');
+			$request =
+			'?live_configurator_token='.$this->getLiveConfiguratorToken()
+			.'&id_employee='.(int)$this->context->employee->id
+			.'&id_shop='.(int)$this->context->shop->id
+			.(Configuration::get('PS_TC_THEME') != '' ? '&theme='.Configuration::get('PS_TC_THEME') : '')
+			.(Configuration::get('PS_TC_FONT') != '' ? '&theme_font='.Configuration::get('PS_TC_FONT') : '');
+			$url = $this->context->link->getPageLink('index', null, $id_lang = null, $request);
 
 			$desc = '<a class="btn btn-default" href="'.$url.'" onclick="return !window.open($(this).attr(\'href\'));" id="live_conf_button">'
 				.$this->l('View').' <i class="icon-external-link"></i></a><br />'

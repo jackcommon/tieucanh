@@ -38,7 +38,7 @@ class SocialSharing extends Module
 		$this->author = 'PrestaShop';
 		$this->tab = 'advertising_marketing';
 		$this->need_instance = 0;
-		$this->version = '1.2.8';
+		$this->version = '1.2.9';
 		$this->bootstrap = true;
 		$this->_directory = dirname(__FILE__);
 
@@ -163,7 +163,7 @@ class SocialSharing extends Module
 		if (!$this->isCached('socialsharing_header.tpl', $this->getCacheId('socialsharing_header|'.(isset($product->id) && $product->id ? (int)$product->id : ''))))
 		{
 			$this->context->smarty->assign(array(
-				'cover' => Product::getCover($product->id),
+				'cover' => isset($product->id) ? Product::getCover((int)$product->id) : '',
 				'link_rewrite' => isset($product->link_rewrite) && $product->link_rewrite ? $product->link_rewrite : '',
 			));
 		}
