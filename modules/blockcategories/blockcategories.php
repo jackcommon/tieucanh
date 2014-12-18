@@ -33,7 +33,7 @@ class BlockCategories extends Module
 	{
 		$this->name = 'blockcategories';
 		$this->tab = 'front_office_features';
-		$this->version = '2.8.3';
+		$this->version = '2.8.4';
 		$this->author = 'PrestaShop';
 
 		$this->bootstrap = true;
@@ -49,7 +49,7 @@ class BlockCategories extends Module
 		// Prepare tab
 		$tab = new Tab();
 		$tab->active = 1;
-		$tab->class_name = "AdminBlockCategories";
+		$tab->class_name = 'AdminBlockCategories';
 		$tab->name = array();
 		foreach (Language::getLanguages(true) as $lang)
 			$tab->name[$lang['id_lang']] = 'BlockCategories';
@@ -164,7 +164,7 @@ class BlockCategories extends Module
 		if ($category->level_depth < 1)
 			return;
 
-		for ($i=0;$i<3;$i++)
+		for ($i = 0; $i < 3; $i++)
 		{
 			if (file_exists(_PS_CAT_IMG_DIR_.(int)$category->id.'-'.$i.'_thumb.jpg'))
 			{
@@ -188,11 +188,16 @@ class BlockCategories extends Module
 		$phpself = $this->context->controller->php_self;
 		$current_allowed_controllers = array('category');
 
-		$from_category = Configuration::get('PS_HOME_CATEGORY');
 		if ($phpself != null && in_array($phpself, $current_allowed_controllers) && Configuration::get('BLOCK_CATEG_ROOT_CATEGORY') && isset($this->context->cookie->last_visited_category) && $this->context->cookie->last_visited_category)
-			$from_category = $this->context->cookie->last_visited_category;
-
-		$category = new Category($from_category, $this->context->language->id);
+		{
+			$category = new Category($this->context->cookie->last_visited_category, $this->context->language->id);
+			if (Configuration::get('BLOCK_CATEG_ROOT_CATEGORY') == 2 && !$category->is_root_category && $category->id_parent)
+				$category = new Category($category->id_parent, $this->context->language->id);
+			elseif (Configuration::get('BLOCK_CATEG_ROOT_CATEGORY') == 3 && !$category->is_root_category && !$category->getSubCategories($category->id, true))
+				$category = new Category($category->id_parent, $this->context->language->id);
+		}
+		else
+			$category = new Category((int)Configuration::get('PS_HOME_CATEGORY'), $this->context->language->id);
 
 		$cacheId = $this->getCacheId($category ? $category->id : null);
 
@@ -386,6 +391,7 @@ class BlockCategories extends Module
 						'type' => 'radio',
 						'label' => $this->l('Category root'),
 						'name' => 'BLOCK_CATEG_ROOT_CATEGORY',
+						'hint' => $this->l('Select which category is displayed in the block. The current category is the one the visitor is currently browsing.'),
 						'values' => array(
 							array(
 								'id' => 'home',
@@ -396,6 +402,16 @@ class BlockCategories extends Module
 								'id' => 'current',
 								'value' => 1,
 								'label' => $this->l('Current category')
+							),
+							array(
+								'id' => 'parent',
+								'value' => 2,
+								'label' => $this->l('Parent category')
+							),
+							array(
+								'id' => 'current_parent',
+								'value' => 3,
+								'label' => $this->l('Current category, unless it has no subcategories, then parent one')
 							),
 						)
 					),
@@ -471,7 +487,7 @@ class BlockCategories extends Module
 
 		$helper = new HelperForm();
 		$helper->show_toolbar = false;
-		$helper->table =  $this->table;
+		$helper->table = $this->table;
 		$lang = new Language((int)Configuration::get('PS_LANG_DEFAULT'));
 		$helper->default_form_language = $lang->id;
 		$helper->allow_employee_form_lang = Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') ? Configuration::get('PS_BO_ALLOW_EMPLOYEE_FORM_LANG') : 0;

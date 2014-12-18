@@ -191,4 +191,38 @@ class BlockWishListMyWishListModuleFrontController extends ModuleFrontController
 
 		die(Tools::jsonEncode(array('error' => true)));
 	}
+
+	public function ajaxProcessProductChangeWishlist()
+	{
+
+		$id_product = (int)Tools::getValue('id_product');
+		$id_product_attribute = (int)Tools::getValue('id_product_attribute');
+		$quantity = (int)Tools::getValue('quantity');
+		$priority = (int)Tools::getValue('priority');
+		$id_old_wishlist = (int)Tools::getValue('id_old_wishlist');
+		$id_new_wishlist = (int)Tools::getValue('id_new_wishlist');
+		//check the data is ok and assign
+		if (!$id_product || !is_int($id_product_attribute) || !$quantity ||
+			!is_int($priority) || ($priority < 0 && $priority > 2) || !$id_old_wishlist || !$id_new_wishlist)
+			die(Tools::jsonEncode(array('success' => false, 'error' => $this->module->l('Error while changing product of list', 'mywishlist'))));
+
+		$res = true;
+		$check = (int)Db::getInstance()->getValue('SELECT quantity FROM '._DB_PREFIX_.'wishlist_product
+			WHERE `id_product` = '.$id_product.' AND `id_product_attribute` = '.$id_product_attribute.' AND `id_wishlist` = '.$id_new_wishlist);
+
+		if ($check)
+		{
+			$res &= WishList::removeProduct($id_old_wishlist, $this->context->customer->id, $id_product, $id_product_attribute);
+			$res &= WishList::updateProduct($id_new_wishlist, $id_product, $id_product_attribute, $priority, $quantity + $check);
+		}
+		else
+		{
+			$res &= WishList::removeProduct($id_old_wishlist, $this->context->customer->id, $id_product, $id_product_attribute);
+			$res &= WishList::addProduct($id_new_wishlist, $this->context->customer->id, $id_product, $id_product_attribute, $quantity);
+		}
+
+		if (!$res)
+			die(Tools::jsonEncode(array('success' => false, 'error' => $this->module->l('Error while changing product of list', 'mywishlist'))));
+		die(Tools::jsonEncode(array('success' => true, 'msg' => $this->module->l('The product has been correctly moved', 'mywishlist'))));
+	}
 }
