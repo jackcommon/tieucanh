@@ -33,3 +33,4 @@ sitemap.xml
 img/tmp/*
 !config/settings.inc.php
 .DS_Store
+!sitemap.xml
